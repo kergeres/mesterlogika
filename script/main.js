@@ -6,6 +6,7 @@ selects.forEach(select => {
     select.addEventListener("change", (e) => {
 
         select.style.backgroundColor = `${e.target.value}`
+        select.style.borderColor = `${e.target.value}`
     })
 
 })
@@ -21,21 +22,27 @@ let randomize = () => {
     for (let i = 0; numbersInKey.length < 4; i++) {
 
         result = Math.floor(Math.random() * 5) + 1
-        console.log(result);
 
         if (!numbersInKey.includes(colors[result])) {
             key.push({ key: `${colors[result]}` })
             numbersInKey.push(colors[result])
-            htmlTemlate += `<div style="background-color: ${colors[result]}" class="keydot"></div>`
+
+            htmlTemlate += `<div style="background-color: 
+            // ${colors[result]}; 
+            // border-color: ${colors[result]}
+            " class="keydot">?</div>`
 
         }
 
     }
 
-    console.log(key);
+
     document.querySelector(".key-row-container").innerHTML = htmlTemlate
 }
 randomize()
+
+
+
 
 
 
@@ -106,7 +113,7 @@ let feedBackAppender = (checkerColorOrder, tipsColorOrder) => {
 
     // set the right color (white, black or none) bgco to the feedback dots 
     checkerColorOrder.forEach(color => {
-        console.log(color);
+
         let dot = document.createElement('div')
         dot.classList.add("checkdot")
         dot.style.backgroundColor = `${color}`
@@ -125,16 +132,16 @@ let feedBackAppender = (checkerColorOrder, tipsColorOrder) => {
     let newTipContainer = document.createElement('form')
     newTipContainer.innerHTML = ` 
     <form class="tip-row-container">
-    <div style="background-color: ${tipsColorOrder[0]}" class="tipdot">
+    <div style="background-color: ${tipsColorOrder[0]}; border-color: ${tipsColorOrder[0]};" class="tipdot">
      
     </div>
-    <div style="background-color: ${tipsColorOrder[1]}" class="tipdot">
+    <div style="background-color: ${tipsColorOrder[1]}; border-color: ${tipsColorOrder[1]};" class="tipdot">
    
     </div>
-    <div style="background-color: ${tipsColorOrder[2]}" class="tipdot">
+    <div style="background-color: ${tipsColorOrder[2]}; border-color: ${tipsColorOrder[2]};" class="tipdot">
  
     </div>
-    <div style="background-color: ${tipsColorOrder[3]}" class="tipdot">
+    <div style="background-color: ${tipsColorOrder[3]}; border-color: ${tipsColorOrder[3]};" class="tipdot">
    
     </div>
     
@@ -142,7 +149,6 @@ let feedBackAppender = (checkerColorOrder, tipsColorOrder) => {
 
     document.querySelector('.past-tip-container').appendChild(newTipContainer)
 }
-
 
 
 

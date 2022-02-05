@@ -8,9 +8,8 @@ main {
   padding: 40px;
 }
 .content-container {
-  // border: $border;
   width: 900px;
-  height: 500px;
+  height: 550px;
   margin: 0 auto;
 }
 $tablewidth: 400px;
@@ -22,34 +21,41 @@ $tablewidth: 400px;
   margin: auto;
   display: grid;
   grid-template-areas:
-    "keyContainer keyContainer"
+    ". keyContainer"
     "checkerContainer tipsContainer ";
   grid-template-rows: 80px auto;
   grid-template-columns: 35% 65%;
+  -webkit-box-shadow: 4px 3px 24px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 3px 24px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 3px 24px 1px rgba(0, 0, 0, 0.75);
 }
 .key-container {
   grid-area: keyContainer;
-  // border: $border;
-  // background-color: deepskyblue;
+
   height: 100%;
   width: 100%;
 }
+
 .key-row-container {
-  // border: $border;
   height: 100%;
+  width: 100%;
+  // opacity: 0;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   .keydot {
     height: 30px;
     width: 30px;
-    border: $border;
+    border: 3px solid black;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
   }
 }
 .check-row-container {
-  border: $border;
-  height: 10%;
+  height: 45px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -61,13 +67,14 @@ $tablewidth: 400px;
   }
 }
 select {
-  -moz-appearance: none; /* Firefox */
-  -webkit-appearance: none; /* Safari and Chrome */
+  -moz-appearance: none;
+  -webkit-appearance: none;
   appearance: none;
-  // background-color: yellowgreen;
+  border: none;
 }
 option {
-  border-radius: 50%;
+  margin-top: 10px;
+  padding-top: 10px;
 }
 option[value="red"] {
   background-color: red;
@@ -89,7 +96,7 @@ option[value="orange"] {
 }
 .tips-container {
   grid-area: tipsContainer;
-  // border: $border;
+
   height: 100%;
   width: 100%;
   // background-color: red;
@@ -97,29 +104,32 @@ option[value="orange"] {
 }
 .checker-container {
   grid-area: checkerContainer;
-  // border: $border;
+
   height: 100%;
   width: 100%;
-  // background-color: darkturquoise;
+
   border-bottom-left-radius: 20px;
 }
 #checker {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  margin-left: calc(($tablewidth/2) + 40px);
+  margin-left: calc(($tablewidth/2) + 60px);
+  width: 80px;
+  height: 30px;
+  border-radius: 2px;
+  border: none;
 }
 .past-tip-container {
   form {
-    border: $border;
     width: 100%;
-    height: 10%;
+    height: 45px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
   .tipdot {
-    border: $border;
+    border: 1px solid gray;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -129,16 +139,41 @@ option[value="orange"] {
 }
 
 .tip-row-container {
+  // egyetlen
   border: $border;
   width: 100%;
-  height: 10%;
+  height: 45px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
   .tipdot {
     border: $border;
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    // background-color: red;
+    background-color: transparent;
+    border: 1px solid gray;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #checker {
+    width: 100vw;
+    left: 0px;
+    margin-left: 0px;
+    transform: translateX(0%);
+    bottom: 0px;
+  }
+  .content-container {
+    width: 90vw;
+  }
+  main {
+    padding: 0;
+  }
+  .table {
+    width: 100%;
+    margin-top: 20px;
   }
 }
