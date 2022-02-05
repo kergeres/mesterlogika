@@ -4,18 +4,50 @@
 let selects = document.querySelectorAll("select")
 selects.forEach(select => {
     select.addEventListener("change", (e) => {
+
         select.style.backgroundColor = `${e.target.value}`
     })
+
 })
 
+let colors = ["yellow", "green", "red", "blue", "purple", "orange"]
+
+let key = []
+
+let randomize = () => {
+    let result = 0
+    let htmlTemlate = ""
+    let numbersInKey = []
+    for (let i = 0; numbersInKey.length < 4; i++) {
+
+        result = Math.floor(Math.random() * 5) + 1
+        console.log(result);
+
+        if (!numbersInKey.includes(colors[result])) {
+            key.push({ key: `${colors[result]}` })
+            numbersInKey.push(colors[result])
+            htmlTemlate += `<div style="background-color: ${colors[result]}" class="keydot"></div>`
+
+        }
+
+    }
+
+    console.log(key);
+    document.querySelector(".key-row-container").innerHTML = htmlTemlate
+}
+randomize()
 
 
-let key = [
-    { key: "yellow" },
-    { key: "red" },
-    { key: "green" },
-    { key: "purple" }
-]
+
+
+
+
+// let key = [
+//     { key: "yellow" },
+//     { key: "red" },
+//     { key: "green" },
+//     { key: "purple" }
+// ]
 
 let tipChecker = (roundIndex) => {
     let checkedArray = [], tips = [], keys = []
