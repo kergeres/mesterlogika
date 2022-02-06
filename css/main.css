@@ -114,7 +114,7 @@ option[value=orange] {
 
 .msg-bg {
   position: fixed;
-  background-color: rgba(245, 200, 76, 0.5);
+  background-color: rgba(230, 230, 230, 0.7);
   height: 98vh;
   width: 98vw;
   display: flex;
@@ -123,13 +123,22 @@ option[value=orange] {
   transform: translate(-50%, -50%);
   top: 50%;
   align-items: center;
+  z-index: 2;
+}
+
+.danger {
+  background-color: #fab4b4 !important;
+  color: red !important;
+  border: 1px solid red !important;
 }
 
 .msg-card {
   width: 300px;
   height: 150px;
-  background-color: #f7f7f7;
+  background-color: #c5ebc0;
+  border: 1px solid green;
   border-radius: 3px;
+  z-index: 3;
   left: 50%;
   position: absolute;
   text-transform: uppercase;
@@ -139,6 +148,7 @@ option[value=orange] {
   display: flex;
   align-items: center;
   flex-direction: column;
+  color: green;
 }
 .msg-card h2 {
   text-align: center;
@@ -147,6 +157,9 @@ option[value=orange] {
 .msg-card button {
   text-transform: uppercase;
   margin-top: 50%;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
 }
 
 .tips-container {
@@ -172,6 +185,7 @@ option[value=orange] {
   height: 30px;
   border-radius: 2px;
   border: none;
+  cursor: pointer;
   background-color: #cd853f;
   text-transform: uppercase;
 }

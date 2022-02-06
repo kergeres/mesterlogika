@@ -12,10 +12,12 @@ selects.forEach(select => {
 
 })
 
+// possible colors for key dots 
 let colors = ["yellow", "green", "red", "blue", "purple", "orange"]
 
-let key = []
 
+// pick random color from colors 
+let key = []
 let randomize = () => {
     let result = 0
     let htmlTemlate = ""
@@ -28,11 +30,7 @@ let randomize = () => {
             key.push({ key: `${colors[result]}` })
             numbersInKey.push(colors[result])
 
-            htmlTemlate += `<div style="background-color: 
-            // ${colors[result]}; 
-            // border-color: ${colors[result]}
-            " class="keydot">?</div>`
-
+            htmlTemlate += `<div style="background-color: " class="keydot">?</div>`
         }
 
     }
@@ -42,13 +40,9 @@ let randomize = () => {
 }
 randomize()
 
-let bigImg = (be) => {
-    console.log(be);
-}
 
-
-
-let alertMessage = (textToDisplay) => {
+// alert message if the user won or lost 
+let alertMessage = (textToDisplay, type) => {
     let messageTemplate = `
     <div class="msg-bg">
     <div class="msg-card" ><h2>${textToDisplay}</h2>
@@ -58,13 +52,17 @@ let alertMessage = (textToDisplay) => {
     `
     setTimeout(() => {
         document.querySelector(".allert-msg-container").innerHTML = messageTemplate
+        if (!type) {
+            document.querySelector(".msg-card").classList.add("danger")
+        }
     }, 500);
+
+
 
 }
 
 let tipChecker = (roundIndex) => {
     let checkedArray = [], tips = [], keys = []
-
 
     // collect the user selected tips
     document.querySelectorAll(`.tips`).forEach(tip => {
@@ -109,12 +107,12 @@ let feedBackAppender = (checkerColorOrder, tipsColorOrder, scoreCounter) => {
     let dotContainer = document.createElement('div')
     dotContainer.classList.add("check-row-container")
     if (scoreCounter == 4) {
-        alertMessage('you won')
+        alertMessage('you won', true)
         return
     }
     if (roundcounter > 9) {
 
-        alertMessage('you lost')
+        alertMessage('you lost', false)
         document.querySelector(".tip-row-container").style.display = "none"
         return
     }
@@ -129,9 +127,6 @@ let feedBackAppender = (checkerColorOrder, tipsColorOrder, scoreCounter) => {
         dotContainer.appendChild(dot)
     });
     document.querySelector(".checker-container").appendChild(dotContainer)
-
-
-
 
 
     let newTipContainer = document.createElement('form')
@@ -154,8 +149,3 @@ let feedBackAppender = (checkerColorOrder, tipsColorOrder, scoreCounter) => {
 
     document.querySelector('.past-tip-container').appendChild(newTipContainer)
 }
-
-
-
-
-
