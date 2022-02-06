@@ -1,16 +1,20 @@
 "use strict"
 
 // color change on the user selected dots 
-let selects = document.querySelectorAll("select")
-selects.forEach(select => {
-    select.addEventListener("change", (e) => {
+let dotColorChange = () => {
+    let selects = document.querySelectorAll("select")
+    selects.forEach(select => {
+        select.addEventListener("change", (e) => {
 
-        select.style.backgroundColor = `${e.target.value}`
-        select.style.borderColor = `${e.target.value}`
-        select.style.color = `${e.target.value}`
+            select.style.backgroundColor = `${e.target.value}`
+            select.style.borderColor = `${e.target.value}`
+            select.style.color = `${e.target.value}`
+        })
+
     })
+}
+dotColorChange()
 
-})
 
 // possible colors for key dots 
 let colors = ["yellow", "green", "red", "blue", "purple", "orange"]
@@ -146,6 +150,46 @@ let feedBackAppender = (checkerColorOrder, tipsColorOrder, scoreCounter) => {
     </div>
     
 </form>`
-
+    let tipContainer = `
+                    <select class="tipdot tips">
+                            <option value="" selected disabled hidden></option>
+                            <option value="red">red</option>
+                            <option value="blue">blue</option>
+                            <option value="yellow">yellow</option>
+                            <option value="orange">orange</option>
+                            <option value="purple">purple</option>
+                            <option value="green">green</option>
+                        </select>
+                        <select class="tipdot tips">
+                            <option value="" selected disabled hidden></option>
+                            <option value="red">red</option>
+                            <option value="blue">blue</option>
+                            <option value="yellow">yellow</option>
+                            <option value="orange">orange</option>
+                            <option value="purple">purple</option>
+                            <option value="green">green</option>
+                        </select>
+                        <select class="tipdot tips">
+                            <option value="" selected disabled hidden></option>
+                            <option value="red">red</option>
+                            <option value="blue">blue</option>
+                            <option value="yellow">yellow</option>
+                            <option value="orange">orange</option>
+                            <option value="purple">puprle</option>
+                            <option value="green">green</option>
+                        </select>
+                        <select class="tipdot tips">
+                            <option value="" selected disabled hidden></option>
+                            <option value="red">red</option>
+                            <option value="blue">blue</option>
+                            <option value="yellow">yellow</option>
+                            <option value="orange">orange</option>
+                            <option value="purple">purple</option>
+                            <option value="green">green</option>
+                        </select>
+                        <button id="checker" onclick="tipChecker()" type="button">Check</button>
+                    `
     document.querySelector('.past-tip-container').appendChild(newTipContainer)
+    document.querySelector('.tip-row-container').innerHTML = tipContainer
+    dotColorChange()
 }
