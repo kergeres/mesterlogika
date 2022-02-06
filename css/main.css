@@ -30,12 +30,21 @@ main {
   border-radius: 20px;
   margin: auto;
   display: grid;
-  grid-template-areas: ". keyContainer" "checkerContainer tipsContainer ";
+  grid-template-areas: "timerDisplay keyContainer" "checkerContainer tipsContainer ";
   grid-template-rows: 80px auto;
   grid-template-columns: 35% 65%;
   -webkit-box-shadow: 4px 3px 24px 1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 4px 3px 24px 1px rgba(0, 0, 0, 0.75);
   box-shadow: 4px 3px 24px 1px rgba(0, 0, 0, 0.75);
+}
+
+.timerDisplay {
+  grid-area: timerDisplay;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
 }
 
 .key-container {
@@ -61,6 +70,7 @@ main {
   align-items: center;
   color: black;
   background-color: wheat;
+  transition: 0.3s;
 }
 
 .check-row-container {
@@ -156,10 +166,14 @@ option[value=orange] {
 }
 .msg-card button {
   text-transform: uppercase;
-  margin-top: 50%;
+  margin-top: 30%;
   width: 100px;
   height: 40px;
   cursor: pointer;
+}
+
+#pauseTimer {
+  display: none;
 }
 
 .tips-container {

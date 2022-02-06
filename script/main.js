@@ -36,10 +36,7 @@ let randomize = () => {
 
             htmlTemlate += `<div style="background-color: " class="keydot">?</div>`
         }
-
     }
-
-
     document.querySelector(".key-row-container").innerHTML = htmlTemlate
 }
 randomize()
@@ -47,10 +44,28 @@ randomize()
 
 // alert message if the user won or lost 
 let alertMessage = (textToDisplay, type) => {
+
+    let dots = document.querySelectorAll(".keydot")
+    document.querySelector("#pauseTimer").click()
+
+    for (let i = 0; i < key.length; i++) {
+
+        dots[i].style.backgroundColor = `${key[i].key}`
+        dots[i].style.color = `${key[i].key}`
+        dots[i].style.borderColor = `${key[i].key}`
+
+    }
+
+
+
+    let runTime = type ? document.querySelector(".timerDisplay").innerHTML : ""
+
     let messageTemplate = `
     <div class="msg-bg">
     <div class="msg-card" ><h2>${textToDisplay}</h2>
+    <h3>${runTime}</h3>
     <a href="index.html"><button>restart</button></a>
+    
     </div>
     </div>
     `
@@ -59,10 +74,7 @@ let alertMessage = (textToDisplay, type) => {
         if (!type) {
             document.querySelector(".msg-card").classList.add("danger")
         }
-    }, 500);
-
-
-
+    }, 1500);
 }
 
 let tipChecker = (roundIndex) => {
@@ -112,7 +124,9 @@ let feedBackAppender = (checkerColorOrder, tipsColorOrder, scoreCounter) => {
     dotContainer.classList.add("check-row-container")
     if (scoreCounter == 4) {
         alertMessage('you won', true)
+
         return
+
     }
     if (roundcounter > 9) {
 
@@ -193,3 +207,6 @@ let feedBackAppender = (checkerColorOrder, tipsColorOrder, scoreCounter) => {
     document.querySelector('.tip-row-container').innerHTML = tipContainer
     dotColorChange()
 }
+
+
+
