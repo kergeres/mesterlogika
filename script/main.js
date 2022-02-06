@@ -7,6 +7,7 @@ selects.forEach(select => {
 
         select.style.backgroundColor = `${e.target.value}`
         select.style.borderColor = `${e.target.value}`
+        select.style.color = `${e.target.value}`
     })
 
 })
@@ -41,20 +42,25 @@ let randomize = () => {
 }
 randomize()
 
+let bigImg = (be) => {
+    console.log(be);
+}
 
 
 
+let alertMessage = (textToDisplay) => {
+    let messageTemplate = `
+    <div class="msg-bg">
+    <div class="msg-card" ><h2>${textToDisplay}</h2>
+    <a href="index.html"><button>restart</button></a>
+    </div>
+    </div>
+    `
+    setTimeout(() => {
+        document.querySelector(".allert-msg-container").innerHTML = messageTemplate
+    }, 500);
 
-
-
-
-
-// let key = [
-//     { key: "yellow" },
-//     { key: "red" },
-//     { key: "green" },
-//     { key: "purple" }
-// ]
+}
 
 let tipChecker = (roundIndex) => {
     let checkedArray = [], tips = [], keys = []
@@ -91,23 +97,25 @@ let tipChecker = (roundIndex) => {
             checkedArray.push("none")
         }
     })
-    if (scoreCounter == 4) {
-        alert("nyert")
-        return
-    }
-    feedBackAppender(checkedArray, tips)
+
+    feedBackAppender(checkedArray, tips, scoreCounter)
 
 }
 let roundcounter = 0;
-let feedBackAppender = (checkerColorOrder, tipsColorOrder) => {
+let feedBackAppender = (checkerColorOrder, tipsColorOrder, scoreCounter) => {
 
     roundcounter++
 
     let dotContainer = document.createElement('div')
     dotContainer.classList.add("check-row-container")
+    if (scoreCounter == 4) {
+        alertMessage('you won')
+        return
+    }
+    if (roundcounter > 9) {
 
-    if (roundcounter > 10) {
-        alert("vege a jateknak, tul sok kor");
+        alertMessage('you lost')
+        document.querySelector(".tip-row-container").style.display = "none"
         return
     }
 
@@ -124,24 +132,21 @@ let feedBackAppender = (checkerColorOrder, tipsColorOrder) => {
 
 
 
-    if (roundcounter > 9) {
-        alert("vege a jateknak, tul sok kor");
-        return
-    }
+
 
     let newTipContainer = document.createElement('form')
     newTipContainer.innerHTML = ` 
     <form class="tip-row-container">
-    <div style="background-color: ${tipsColorOrder[0]}; border-color: ${tipsColorOrder[0]};" class="tipdot">
+    <div style="background-color: ${tipsColorOrder[0]}; border-color: ${tipsColorOrder[0]}; color: ${tipsColorOrder[0]}; " class="tipdot">
      
     </div>
-    <div style="background-color: ${tipsColorOrder[1]}; border-color: ${tipsColorOrder[1]};" class="tipdot">
+    <div style="background-color: ${tipsColorOrder[1]}; border-color: ${tipsColorOrder[1]}; color: ${tipsColorOrder[1]};" class="tipdot">
    
     </div>
-    <div style="background-color: ${tipsColorOrder[2]}; border-color: ${tipsColorOrder[2]};" class="tipdot">
+    <div style="background-color: ${tipsColorOrder[2]}; border-color: ${tipsColorOrder[2]}; color: ${tipsColorOrder[2]};" class="tipdot">
  
     </div>
-    <div style="background-color: ${tipsColorOrder[3]}; border-color: ${tipsColorOrder[3]};" class="tipdot">
+    <div style="background-color: ${tipsColorOrder[3]}; border-color: ${tipsColorOrder[3]}; color: ${tipsColorOrder[3]};" class="tipdot">
    
     </div>
     

@@ -1,22 +1,24 @@
 @import "vars";
 
 html {
-  background-color: darkslategray;
+  background-color: #f5deb3;
 }
 
 main {
-  padding: 40px;
+  padding: 35px;
 }
 .content-container {
   width: 900px;
-  height: 550px;
+  height: 500px;
   margin: 0 auto;
 }
-$tablewidth: 400px;
+$tablewidth: 350px;
 .table {
+  background-image: url("../img/b9ea4e526fb0fc0fd8038ac713fbb881.jpg");
+
   width: $tablewidth;
   height: 100%;
-  border: $border;
+  border: 1px solid rgba(33, 33, 33, 0.3);
   border-radius: 20px;
   margin: auto;
   display: grid;
@@ -46,23 +48,25 @@ $tablewidth: 400px;
   .keydot {
     height: 30px;
     width: 30px;
-    border: 3px solid black;
+    border: 2px solid black;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: black;
+    background-color: wheat;
   }
 }
 .check-row-container {
-  height: 45px;
+  height: 40px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   .checkdot {
     width: 20px;
     height: 20px;
-    border: 1px solid gray;
+    border: $dotBorder;
+    @extend .box-shadow;
     border-radius: 50%;
   }
 }
@@ -73,32 +77,75 @@ select {
   border: none;
 }
 option {
-  margin-top: 10px;
-  padding-top: 10px;
+  color: transparent !important;
+  font-size: 14px;
 }
+
 option[value="red"] {
   background-color: red;
 }
+
 option[value="blue"] {
   background-color: blue;
+  // color: blue;
 }
 option[value="yellow"] {
   background-color: yellow;
+  // color: yellow;
 }
 option[value="purple"] {
   background-color: purple;
+  // color: purple;
 }
 option[value="green"] {
   background-color: green;
+  // color: green;
 }
 option[value="orange"] {
   background-color: orange;
+  // color: orange;
+}
+.msg-bg {
+  position: fixed;
+  background-color: rgba(245, 200, 76, 0.5);
+  height: 98vh;
+  width: 98vw;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  // opacity: 0.6;
+  align-items: center;
+}
+.msg-card {
+  width: 300px;
+  height: 150px;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  left: 50%;
+  position: absolute;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  transform: translate(-50%, -100%);
+  top: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  h2 {
+    text-align: center;
+    padding-top: 15px;
+  }
+  button {
+    text-transform: uppercase;
+    margin-top: 50%;
+  }
 }
 .tips-container {
   grid-area: tipsContainer;
 
   height: 100%;
-  width: 100%;
+  width: 99.5%;
   // background-color: red;
   border-bottom-right-radius: 20px;
 }
@@ -119,22 +166,30 @@ option[value="orange"] {
   height: 30px;
   border-radius: 2px;
   border: none;
+  background-color: #cd853f;
+  text-transform: uppercase;
+}
+.box-shadow {
+  -webkit-box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.21);
+  box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.21);
 }
 .past-tip-container {
   form {
     width: 100%;
-    height: 45px;
+    height: 40px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
   }
   .tipdot {
-    border: 1px solid gray;
+    border: $dotBorder;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     margin-top: 5px;
     margin-bottom: 5px;
+    @extend .box-shadow;
   }
 }
 
@@ -142,29 +197,29 @@ option[value="orange"] {
   // egyetlen
   border: $border;
   width: 100%;
-  height: 45px;
+  height: 40px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 
   .tipdot {
-    border: $border;
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     // background-color: red;
     background-color: transparent;
-    border: 1px solid gray;
+    border: $dotBorder;
+    @extend .box-shadow;
   }
 }
 
 @media screen and (max-width: 992px) {
   #checker {
-    width: 100vw;
-    left: 0px;
-    margin-left: 0px;
-    transform: translateX(0%);
-    bottom: 0px;
+    width: 60vw;
+    right: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    bottom: 30px;
   }
   .content-container {
     width: 90vw;

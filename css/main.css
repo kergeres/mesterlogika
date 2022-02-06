@@ -9,21 +9,22 @@
 }
 
 html {
-  background-color: darkslategray;
+  background-color: #f5deb3;
 }
 
 main {
-  padding: 40px;
+  padding: 35px;
 }
 
 .content-container {
   width: 900px;
-  height: 550px;
+  height: 500px;
   margin: 0 auto;
 }
 
 .table {
-  width: 400px;
+  background-image: url("../img/b9ea4e526fb0fc0fd8038ac713fbb881.jpg");
+  width: 350px;
   height: 100%;
   border: 1px solid rgba(33, 33, 33, 0.3);
   border-radius: 20px;
@@ -53,16 +54,17 @@ main {
 .key-row-container .keydot {
   height: 30px;
   width: 30px;
-  border: 3px solid black;
+  border: 2px solid black;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: black;
+  background-color: wheat;
 }
 
 .check-row-container {
-  height: 45px;
+  height: 40px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -70,7 +72,7 @@ main {
 .check-row-container .checkdot {
   width: 20px;
   height: 20px;
-  border: 1px solid gray;
+  border: 1px solid black;
   border-radius: 50%;
 }
 
@@ -82,8 +84,8 @@ select {
 }
 
 option {
-  margin-top: 10px;
-  padding-top: 10px;
+  color: transparent !important;
+  font-size: 14px;
 }
 
 option[value=red] {
@@ -110,10 +112,47 @@ option[value=orange] {
   background-color: orange;
 }
 
+.msg-bg {
+  position: fixed;
+  background-color: rgba(245, 200, 76, 0.5);
+  height: 98vh;
+  width: 98vw;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  align-items: center;
+}
+
+.msg-card {
+  width: 300px;
+  height: 150px;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  left: 50%;
+  position: absolute;
+  text-transform: uppercase;
+  font-family: Arial, Helvetica, sans-serif;
+  transform: translate(-50%, -100%);
+  top: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.msg-card h2 {
+  text-align: center;
+  padding-top: 15px;
+}
+.msg-card button {
+  text-transform: uppercase;
+  margin-top: 50%;
+}
+
 .tips-container {
   grid-area: tipsContainer;
   height: 100%;
-  width: 100%;
+  width: 99.5%;
   border-bottom-right-radius: 20px;
 }
 
@@ -128,22 +167,30 @@ option[value=orange] {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  margin-left: 260px;
+  margin-left: 235px;
   width: 80px;
   height: 30px;
   border-radius: 2px;
   border: none;
+  background-color: #cd853f;
+  text-transform: uppercase;
+}
+
+.box-shadow, .tip-row-container .tipdot, .past-tip-container .tipdot, .check-row-container .checkdot {
+  -webkit-box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.21);
+  -moz-box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.21);
+  box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.21);
 }
 
 .past-tip-container form {
   width: 100%;
-  height: 45px;
+  height: 40px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 .past-tip-container .tipdot {
-  border: 1px solid gray;
+  border: 1px solid black;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -152,29 +199,28 @@ option[value=orange] {
 }
 
 .tip-row-container {
-  border: 1px solid rgba(33, 33, 33, 0.3);
+  border: 1px solid black;
   width: 100%;
-  height: 45px;
+  height: 40px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 .tip-row-container .tipdot {
-  border: 1px solid rgba(33, 33, 33, 0.3);
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: transparent;
-  border: 1px solid gray;
+  border: 1px solid black;
 }
 
 @media screen and (max-width: 992px) {
   #checker {
-    width: 100vw;
-    left: 0px;
-    margin-left: 0px;
-    transform: translateX(0%);
-    bottom: 0px;
+    width: 60vw;
+    right: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    bottom: 30px;
   }
 
   .content-container {

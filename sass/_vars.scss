@@ -1,8 +1,3 @@
-// @font-face {
-//   font-family: "Roboto";
-//   src: url(../fonts/roboto/Roboto-Regular.ttf);
-// }
-
 * {
   margin: 0;
   padding: 0;
@@ -13,5 +8,6 @@
   outline: 0 !important;
 }
 
+$dotBorder: 1px solid black;
 // for development
-$border: 1px solid rgba(33, 33, 33, 0.3);
+$border: 1px solid black;
